@@ -1,0 +1,171 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  background:radial-gradient(circle at bottom,#0d1b2a 0%,#000814 70%,#000 100%);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  font-family:'Segoe UI',sans-serif;
+  color:white;
+  position:relative;
+}
+
+/* TITLE */
+.title{
+  position:absolute;
+  top:50px;
+  font-size:48px;
+  font-weight:700;
+  background:linear-gradient(45deg,#ff4d6d,#ffd700,#ff4d6d);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-align:center;
+  animation:titlePulse 3s infinite ease-in-out;
+}
+@keyframes titlePulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+
+/* SUBTITLE */
+.subtitle{
+  position:absolute;
+  bottom:80px;
+  font-size:22px;
+  color:#fff6b7;
+  animation:fadeInOut 4s infinite ease-in-out;
+}
+@keyframes fadeInOut{
+  0%,100%{opacity:0.6;}
+  50%{opacity:1;}
+}
+
+/* MESSAGE */
+.message{
+  position:absolute;
+  bottom:140px;
+  font-size:28px;
+  font-weight:600;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 1s ease;
+  background:linear-gradient(45deg,#ffd700,#ff4d6d);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.message.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* WRAPPER */
+.wrapper{
+  position:relative;
+  width:420px;
+  height:420px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:transform 0.3s ease, filter 0.3s ease;
+  filter:drop-shadow(0 0 80px rgba(255,77,109,0.4));
+}
+.wrapper:hover{
+  transform:scale(1.05);
+}
+
+/* STEM */
+.stem{
+  position:absolute;
+  width:12px;
+  height:250px;
+  background:linear-gradient(to right,#2d6a4f,#40916c,#2d6a4f);
+  border-radius:6px;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+/* LEAVES */
+.leaf{
+  position:absolute;
+  width:60px;
+  height:100px;
+  background:linear-gradient(45deg,#2d6a4f,#52b788,#2d6a4f);
+  border-radius:0 100% 50% 100%;
+}
+.leaf.left{
+  top:80px;
+  left:-50px;
+  transform:rotate(-30deg);
+}
+.leaf.right{
+  top:140px;
+  right:-50px;
+  transform:rotate(30deg) scaleX(-1);
+}
+
+/* PETALS */
+.petal{
+  position:absolute;
+  width:180px;
+  height:250px;
+  border-radius:50% 50% 40% 40%;
+  transform-origin:bottom center;
+  opacity:0;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(255,255,255,0.6),transparent 40%),
+    radial-gradient(circle at 30% 40%,rgba(255,255,255,0.2),transparent 60%),
+    radial-gradient(ellipse at 50% 80%,#6a040f,#9d0208,#d00000,#ff4d6d);
+}
+
+/* BLOOM */
+@keyframes bloom{
+  0%{
+    opacity:0;
+    transform:rotate(var(--r)) translateY(40px) scale(0.2);
+  }
+  100%{
+    opacity:1;
+    transform:rotate(var(--r)) translateY(0px) scale(1);
+  }
+}
+.bloom .petal{
+  animation:bloom 2.5s forwards ease-out;
+}
+
+/* SPARKLE */
+.sparkle{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  animation:sparkleAnim 1.5s ease-out forwards;
+}
+@keyframes sparkleAnim{
+  0%{transform:scale(0);opacity:1;}
+  100%{transform:scale(1) translate(var(--tx),var(--ty));opacity:0;}
+}
+
+/* FLOATING HEART */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:floatHeart 6s ease-in-out forwards;
+}
+@keyframes floatHeart{
+  0%{opacity:0;transform:translateY(0) scale(0);}
+  20%{opacity:1;}
+  100%{opacity:0;transform:translateY(-300px) scale(1.5);}
+}
+
+/* INSTRUCTION */
+.instruction{
+  position:absolute;
+  bottom:30px;
+  font-size:16px;
+  color:rgba(255,255,255,0.5);
+}
