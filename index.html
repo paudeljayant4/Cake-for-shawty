@@ -3,66 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="A magical blooming flower for Himani">
+  <meta name="theme-color" content="#1a1a2e">
   <title>For Himani 🌹</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   
-<div class="stars"></div>
-
-<div class="title">For Himani 🌹</div>
-<div class="subtitle" id="subtitle">Click the flower ✨</div>
-
-<div class="wrapper" id="flower" role="button" tabindex="0" aria-label="Magic flower - click to bloom">
+  <!-- Starry Background -->
+  <div class="stars" aria-hidden="true"></div>
   
-  <!-- Glow Effect -->
-  <div class="glow"></div>
+  <!-- Ambient Glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
   
-  <!-- Stem and Leaves -->
-  <div class="stem">
-    <div class="leaf left"></div>
-    <div class="leaf right"></div>
-    <div class="leaf small left-small"></div>
-    <div class="leaf small right-small"></div>
+  <!-- Main Title -->
+  <h1 class="title">For Himani 🌹</h1>
+  
+  <!-- Subtitle (before bloom) -->
+  <p class="subtitle" id="subtitle">Click the flower ✨</p>
+  
+  <!-- Interactive Flower -->
+  <div class="flower-container" id="flower" role="button" tabindex="0" aria-label="Magic flower - click to bloom">
+    
+    <!-- Back Glow -->
+    <div class="flower-glow" aria-hidden="true"></div>
+    
+    <!-- Stem Group -->
+    <div class="stem-group" aria-hidden="true">
+      <div class="stem"></div>
+      <div class="leaf leaf-left"></div>
+      <div class="leaf leaf-right"></div>
+      <div class="leaf leaf-small leaf-small-left"></div>
+      <div class="leaf leaf-small leaf-small-right"></div>
+    </div>
+    
+    <!-- Petals Layer -->
+    <div class="petals-layer" aria-hidden="true">
+      <!-- Outer Petals -->
+      <div class="petal petal-outer" style="--angle: 0deg; --delay: 0ms;"></div>
+      <div class="petal petal-outer" style="--angle: 45deg; --delay: 80ms;"></div>
+      <div class="petal petal-outer" style="--angle: 90deg; --delay: 160ms;"></div>
+      <div class="petal petal-outer" style="--angle: 135deg; --delay: 240ms;"></div>
+      <div class="petal petal-outer" style="--angle: 180deg; --delay: 320ms;"></div>
+      <div class="petal petal-outer" style="--angle: 225deg; --delay: 400ms;"></div>
+      <div class="petal petal-outer" style="--angle: 270deg; --delay: 480ms;"></div>
+      <div class="petal petal-outer" style="--angle: 315deg; --delay: 560ms;"></div>
+      
+      <!-- Inner Petals -->
+      <div class="petal petal-inner" style="--angle: 22.5deg; --delay: 640ms;"></div>
+      <div class="petal petal-inner" style="--angle: 67.5deg; --delay: 720ms;"></div>
+      <div class="petal petal-inner" style="--angle: 112.5deg; --delay: 800ms;"></div>
+      <div class="petal petal-inner" style="--angle: 157.5deg; --delay: 880ms;"></div>
+      <div class="petal petal-inner" style="--angle: 202.5deg; --delay: 960ms;"></div>
+      <div class="petal petal-inner" style="--angle: 247.5deg; --delay: 1040ms;"></div>
+      <div class="petal petal-inner" style="--angle: 292.5deg; --delay: 1120ms;"></div>
+      <div class="petal petal-inner" style="--angle: 337.5deg; --delay: 1200ms;"></div>
+    </div>
+    
+    <!-- Flower Center -->
+    <div class="flower-center" aria-hidden="true">
+      <div class="center-glow"></div>
+      <div class="center-core"></div>
+    </div>
+    
   </div>
   
-  <!-- Center of Flower -->
-  <div class="center"></div>
+  <!-- Love Message (reveals after bloom) -->
+  <div class="message-container" id="messageContainer" aria-live="polite">
+    <div class="message" id="loveMsg">
+      <span class="message-main">You make my world bloom 🌹</span>
+      <span class="message-sub">Every moment with you is magical ✨</span>
+    </div>
+  </div>
   
-  <!-- Petals -->
-  <div class="petal" style="--r:0deg; --delay:0ms"></div>
-  <div class="petal" style="--r:45deg; --delay:100ms"></div>
-  <div class="petal" style="--r:90deg; --delay:200ms"></div>
-  <div class="petal" style="--r:135deg; --delay:300ms"></div>
-  <div class="petal" style="--r:180deg; --delay:400ms"></div>
-  <div class="petal" style="--r:225deg; --delay:500ms"></div>
-  <div class="petal" style="--r:270deg; --delay:600ms"></div>
-  <div class="petal" style="--r:315deg; --delay:700ms"></div>
+  <!-- Instruction Text -->
+  <p class="instruction" id="instruction">✨ Tap the flower to begin ✨</p>
   
-  <!-- Inner Petals -->
-  <div class="petal inner" style="--r:22.5deg; --delay:800ms"></div>
-  <div class="petal inner" style="--r:67.5deg; --delay:900ms"></div>
-  <div class="petal inner" style="--r:112.5deg; --delay:1000ms"></div>
-  <div class="petal inner" style="--r:157.5deg; --delay:1100ms"></div>
-  <div class="petal inner" style="--r:202.5deg; --delay:1200ms"></div>
-  <div class="petal inner" style="--r:247.5deg; --delay:1300ms"></div>
-  <div class="petal inner" style="--r:292.5deg; --delay:1400ms"></div>
-  <div class="petal inner" style="--r:337.5deg; --delay:1500ms"></div>
-
-</div>
-
-<div class="message" id="loveMsg">
-  You make my world bloom 🌹<br>
-  <span class="heart-text">Every moment with you is magical ✨</span>
-</div>
-
-<div class="instruction" id="instruction">✨ Tap the flower to begin ✨</div>
-
-<audio id="bgMusic" loop preload="auto">
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
-</audio>
-
-<script src="script.js"></script>
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script src="script.js"></script>
 </body>
 </html>
